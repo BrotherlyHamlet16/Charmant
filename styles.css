@@ -189,6 +189,8 @@ section {
     font-size: 2.4rem;
     color: var(--primary);
     cursor: pointer;
+    z-index: 1002; /* Higher than the mobile menu overlay */
+    transition: var(--transition);
 }
 
 /* ===== HERO SECTION ===== */
@@ -544,5 +546,131 @@ section {
 }
 
 .footer-logo, .footer-links, .footer-newsletter {
-    flex
+    flex: 1 1 300px;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media screen and (max-width: 768px) {
+    /* Mobile Navigation */
+    .mobile-nav-toggle {
+        display: block;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+
+    .mobile-nav-toggle:hover {
+        transform: scale(1.1);
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: var(--transparent-white);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1001;
+        transition: transform 0.4s ease-in-out;
+        transform: translateX(100%);
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        margin: 2rem 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s;
+    }
+
+    .nav-links a {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+    }
+
+    .nav-links a::after {
+        bottom: -5px;
+        height: 3px;
+    }
+
+    /* Hero Section Adjustments */
+    .hero-content {
+        padding: 0 var(--spacing-sm);
+        width: 90%;
+    }
+
+    .hero-content h2 {
+        font-size: 3.6rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .hero-content p {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    /* Section Padding Adjustments */
+    section {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .section-header {
+        margin-bottom: var(--spacing-md);
+    }
+
+    /* Featured Section Adjustments */
+    .slider-container {
+        width: 95%;
+    }
+
+    .slide {
+        height: 400px;
+    }
+
+    /* Products Grid Adjustments */
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: var(--spacing-sm);
+    }
+
+    /* About Section Adjustments */
+    .about-section {
+        flex-direction: column;
+    }
+
+    .about-content, .about-image {
+        padding: var(--spacing-sm);
+    }
+
+    /* Contact Section Adjustments */
+    .contact-container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .info-item {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .social-links {
+        margin-top: var(--spacing-md);
+    }
+
+    /* Footer Adjustments */
+    .footer-content {
+        gap: var(--spacing-md);
+        text-align: center;
+    }
 }
