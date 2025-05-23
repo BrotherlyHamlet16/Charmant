@@ -1,15 +1,15 @@
 /* ===== CSS RESET & VARIABLES ===== */
 :root {
     /* Color variables */
-    --primary: #800020;     /* Deep burgundy */
-    --accent: #FF6B6B;      /* Coral */
-    --gold: #FFD700;        /* Golden */
+    --primary: #CC7A8B;     /* Dusky Pink */
+    --accent: #7ABFCC;      /* Complementary muted teal */
+    --gold: #E6C69E;        /* Soft champagne */
     --white: #FFFFFF;       /* White */
     --light-gray: #F5F5F5;  /* Light Gray */
     --dark-gray: #333333;   /* Dark Gray */
     --off-white: #FAFAFA;   /* Off White */
     --transparent-white: rgba(255, 255, 255, 0.9); /* For glass effect */
-    --transparent-burgundy: rgba(128, 0, 32, 0.85); /* For overlays */
+    --transparent-burgundy: rgba(204, 122, 139, 0.85); /* Dusky Pink overlay */
 
     /* Typography */
     --heading-font: 'Playfair Display', serif;
@@ -116,7 +116,7 @@ section {
 }
 
 .btn-primary:hover {
-    background-color: #6b001b;
+    background-color: #B56374; /* Darker shade of Dusky Pink */
     transform: translateY(-3px);
     box-shadow: var(--box-shadow);
 }
@@ -529,7 +529,7 @@ section {
 .form-group input:focus, 
 .form-group textarea:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(128, 0, 32, 0.1);
+    box-shadow: 0 0 0 2px rgba(204, 122, 139, 0.1);
 }
 
 .contact-form button {
