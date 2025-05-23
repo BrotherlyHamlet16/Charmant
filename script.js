@@ -1,3 +1,58 @@
+// Slider functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const dotsContainer = document.querySelector('.slider-dots');
+
+    let currentSlide = 0;
+    const slideCount = slides.length;
+
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    // Update dots
+    function updateDots() {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    // Go to specific slide
+    function goToSlide(index) {
+        currentSlide = index;
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        updateDots();
+    }
+
+    // Next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slideCount;
+        goToSlide(currentSlide);
+    }
+
+    // Previous slide
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+        goToSlide(currentSlide);
+    }
+
+    // Event listeners
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // Optional: Auto slide every 5 seconds
+    setInterval(nextSlide, 5000);
+});
+
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', () => {
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');

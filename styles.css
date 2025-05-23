@@ -1,15 +1,21 @@
 /* ===== CSS RESET & VARIABLES ===== */
 :root {
     /* Color variables */
-    --primary: #800020;     /* Deep burgundy */
-    --accent: #FF6B6B;      /* Coral */
-    --gold: #FFD700;        /* Golden */
+    --primary: #CC7A8B;     /* Dusky Pink - main brand color */
+    --accent: #9FB7BE;      /* Softer muted teal - more harmonious with pink */
+    --gold: #E6D5C0;        /* Warmer, softer champagne */
     --white: #FFFFFF;       /* White */
-    --light-gray: #F5F5F5;  /* Light Gray */
+    --light-gray: #F8F0F2;  /* Pink-tinted light gray */
     --dark-gray: #333333;   /* Dark Gray */
     --off-white: #FAFAFA;   /* Off White */
     --transparent-white: rgba(255, 255, 255, 0.9); /* For glass effect */
-    --transparent-burgundy: rgba(128, 0, 32, 0.85); /* For overlays */
+    --transparent-burgundy: rgba(204, 122, 139, 0.85); /* Dusky Pink overlay */
+    
+    /* Background and text colors */
+    --bg-pink: #FFF5F7;     /* Even softer light pink background */
+    --bg-pink-darker: #FFE8ED; /* Refined darker pink */
+    --text-dark: #574448;   /* Warmer deep mauve */
+    --text-medium: #8B6D74; /* Warmer medium mauve */
 
     /* Typography */
     --heading-font: 'Playfair Display', serif;
@@ -44,8 +50,8 @@ body {
     font-family: var(--body-font);
     font-size: 1.6rem;
     line-height: 1.6;
-    color: var(--dark-gray);
-    background-color: var(--white);
+    color: var(--text-dark);
+    background-color: var(--bg-pink);
     overflow-x: hidden;
 }
 
@@ -95,7 +101,7 @@ section {
 }
 
 .section-header p {
-    color: var(--dark-gray);
+    color: var(--text-medium);
     font-size: 1.8rem;
 }
 
@@ -116,7 +122,7 @@ section {
 }
 
 .btn-primary:hover {
-    background-color: #6b001b;
+    background-color: #D88C9C; /* Softer hover shade for Dusky Pink */
     transform: translateY(-3px);
     box-shadow: var(--box-shadow);
 }
@@ -132,7 +138,7 @@ section {
     align-items: center;
     padding: 2rem var(--spacing-lg);
     z-index: 1000;
-    background-color: var(--transparent-white);
+    background-color: rgba(255, 245, 247, 0.97);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
@@ -158,7 +164,7 @@ section {
 .nav-links a {
     font-size: 1.6rem;
     font-weight: 500;
-    color: var(--dark-gray);
+    color: var(--text-dark);
     padding: 0.5rem 1rem;
     position: relative;
 }
@@ -217,7 +223,10 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--transparent-burgundy);
+    background: linear-gradient(
+        rgba(77, 59, 63, 0.9),
+        rgba(204, 122, 139, 0.85)
+    );
 }
 
 .hero-content {
@@ -233,18 +242,38 @@ section {
     font-weight: 700;
     margin-bottom: var(--spacing-md);
     line-height: 1.2;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    color: var(--white);
+    letter-spacing: 1px;
 }
 
 .hero-content p {
     font-size: 2.2rem;
     margin-bottom: var(--spacing-lg);
-    font-weight: 300;
+    font-weight: 400;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    color: var(--white);
+    opacity: 0.95;
+}
+
+/* Make the button stand out more */
+.hero-content .btn-primary {
+    background-color: var(--white);
+    color: var(--primary);
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content .btn-primary:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* ===== FEATURED PRODUCTS SLIDER ===== */
 .featured-section {
-    background-color: var(--off-white);
+    background-color: var(--bg-pink-darker);
     padding: var(--spacing-xl) var(--spacing-lg);
 }
 
@@ -254,14 +283,17 @@ section {
     max-width: 1000px;
     margin: 0 auto;
     overflow: hidden;
+    border-radius: var(--border-radius);
 }
 
 .slider {
     display: flex;
     transition: transform 0.5s ease;
+    width: 100%;
 }
 
 .slide {
+    flex: 0 0 100%;
     min-width: 100%;
     position: relative;
     height: 500px;
@@ -310,7 +342,7 @@ section {
 }
 
 .prev-btn, .next-btn {
-    background-color: var(--transparent-white);
+    background-color: rgba(255, 245, 247, 0.95);
     border-radius: 50%;
     width: 5rem;
     height: 5rem;
@@ -322,7 +354,7 @@ section {
     color: var(--primary);
     font-size: 2rem;
     border: none;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(204, 122, 139, 0.1);
 }
 
 .prev-btn:hover, .next-btn:hover {
@@ -352,7 +384,7 @@ section {
 
 /* ===== PRODUCTS SECTION ===== */
 .products-section {
-    background-color: var(--white);
+    background-color: var(--bg-pink);
 }
 
 .products-grid {
@@ -368,13 +400,13 @@ section {
     background-color: var(--white);
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 5px 15px rgba(204, 122, 139, 0.08);
     transition: var(--transition);
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(204, 122, 139, 0.15);
 }
 
 .product-image {
@@ -401,7 +433,7 @@ section {
     font-family: var(--heading-font);
     font-size: 1.8rem;
     margin-bottom: 5px;
-    color: var(--dark-gray);
+    color: var(--text-dark);
 }
 
 .product-info .price {
@@ -413,12 +445,12 @@ section {
 
 .product-info .description {
     font-size: 1.4rem;
-    color: #666;
+    color: var(--text-medium);
 }
 
 /* ===== ABOUT SECTION ===== */
 .about-section {
-    background-color: var(--off-white);
+    background-color: var(--bg-pink-darker);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -443,7 +475,7 @@ section {
 
 .about-text p {
     margin-bottom: var(--spacing-sm);
-    color: #555;
+    color: var(--text-medium);
 }
 
 .about-image img {
@@ -456,7 +488,7 @@ section {
 
 /* ===== CONTACT SECTION ===== */
 .contact-section {
-    background-color: var(--white);
+    background-color: var(--bg-pink);
 }
 
 .contact-container {
@@ -494,10 +526,16 @@ section {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
-    background-color: var(--light-gray);
+    background-color: var(--bg-pink);
     color: var(--primary);
     font-size: 1.8rem;
     transition: var(--transition);
+}
+
+/* Add specific styling for the X icon to match other icons */
+.social-links a .fa-x {
+    font-size: 1.6rem; /* Slightly smaller to match visual weight */
+    font-weight: 600; /* Make it a bit bolder */
 }
 
 .social-links a:hover {
@@ -520,16 +558,16 @@ section {
 .form-group textarea {
     width: 100%;
     padding: 1.2rem;
-    border: 1px solid #ddd;
+    border: 1px solid #EED4DA;
     border-radius: var(--border-radius);
     transition: var(--transition);
-    background-color: var(--light-gray);
+    background-color: var(--bg-pink);
 }
 
 .form-group input:focus, 
 .form-group textarea:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(128, 0, 32, 0.1);
+    box-shadow: 0 0 0 2px rgba(204, 122, 139, 0.1);
 }
 
 .contact-form button {
@@ -539,7 +577,7 @@ section {
 
 /* ===== FOOTER ===== */
 .footer {
-    background-color: var(--dark-gray);
+    background-color: #4D3B3F;
     color: var(--white);
     padding: var(--spacing-xl) var(--spacing-lg);
 }
